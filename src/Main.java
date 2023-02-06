@@ -57,7 +57,7 @@ public class Main {
             boolean isInputValid = false;
 
             do {
-                System.out.println("Wollen Sie das Programm neustarten? Ja / Nein");
+                System.out.println("Wollen Sie das 123 Programm neustarten? Ja / Nein");
                  restartInput = sc.nextLine();
 
                 if (restartInput.toUpperCase().equals("JA")) {
