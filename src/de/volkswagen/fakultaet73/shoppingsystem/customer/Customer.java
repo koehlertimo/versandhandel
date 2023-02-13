@@ -1,5 +1,12 @@
-package de.volkswagen.fakultaet73.versandhandel;
+package de.volkswagen.fakultaet73.shoppingsystem.customer;
 
+import de.volkswagen.fakultaet73.shoppingsystem.system.ShoppingSystem;
+
+/* 
+ * This class contains constructors and methodes for the Customers Class
+ * The object Customer is used to store data from the customers.
+ * The data is to decrease the bureaucracy and speed up the whole process and UX.
+ */
 public class Customer {
 	private int id;
 	private String firstName;
@@ -9,27 +16,19 @@ public class Customer {
 	private int postalCode;
 	private String city;
 	private String country;
-	
+
 	/**
-	 * Dies ist der Standart Konstrukter für die Customer Klasse!
-	 * @param id
-	 * Ist die Customer ID
-	 * @param firstName
-	 * ist der Vorname des Kunden 
-	 * @param lastName
-	 * Ist der Nachname des Kunden
-	 * @param streetName
-	 * Ist der Straßenname des Wohnorts des Kunden
-	 * @param houseNumber
-	 * Ist die Hausnummer des Wohnorts des Kunden
-	 * @param postalCode
-	 * Ist die Postleitzahl des Wohnorts des Kunden
-	 * @param city
-	 * Ist der Wohnort des Kunden
-	 * @param country
-	 * Ist das Land wo der Kunden wohnt!
+	 * Main Constructor for the object "Costumer",
+	 * 
+	 * @param firstName   first Name of the customer
+	 * @param lastName    last Name of the customer
+	 * @param streetName  streetname of the customer
+	 * @param houseNumber housenumber of the customer
+	 * @param postalCode  postalcode of the customer
+	 * @param city        hometown of the customer
+	 * @param country     country of the customer
 	 */
-	
+
 	public Customer(int id, String firstName, String lastName, String streetName, int houseNumber, int postalCode,
 			String city, String country) {
 		this.id = id;
@@ -43,8 +42,18 @@ public class Customer {
 	}
 
 	/**
-	 * Ist eine Kopie des Standart Konstrukter der Klasse Customer und 
+	 * 2nd Constructor for the object "Costumer",
+	 * 
+	 * @param id          the unique Customer-ID
+	 * @param firstName   first name of the customer
+	 * @param lastName    last name of the customer
+	 * @param streetName  street name of the customer
+	 * @param houseNumber house number of the customer
+	 * @param postalCode  postal code of the customer
+	 * @param city        home town of the customer
+	 * @param country     country of the customer
 	 */
+
 	public Customer(String firstName, String lastName, String streetName, int houseNumber, int postalCode, String city,
 			String country) {
 		this.id = generateCustomerId();
@@ -57,8 +66,12 @@ public class Customer {
 		this.country = country;
 	}
 
-	
-
+	/*
+	 * Methode to validate a generated customerID, restarts the process
+	 * automatically otherwise
+	 * 
+	 * @return a valid customerID
+	 */
 	private int generateCustomerId() {
 		int generatedCustomerId = 0;
 		do {
@@ -71,16 +84,28 @@ public class Customer {
 		return 0;
 	}
 
+	/*
+	 * Methode to check that the generated customerID is not in use.
+	 * 
+	 * @param id the generated to that needs to checked
+	 * 
+	 * @return false if the ID is not in use otherwise false
+	 */
 	private boolean doesCustomerExists(int id) {
-		Versandhandel versandhandel = new Versandhandel();
-		for (int i = 0; i < versandhandel.customers.length; i++) {
-			if (versandhandel.customers[i].getId() == id) {
+		ShoppingSystem shop = new ShoppingSystem();
+		for (int i = 0; i < shop.customers.length; i++) {
+			if (shop.customers[i].getId() == id) {
 				return false;
 			}
 		}
 		return true;
 	}
 
+	/*
+	 * Method to generate a random number between 00001 to 99999
+	 * 
+	 * @return generated random number
+	 */
 	private int generateRandomId() {
 		int min = 1;
 		int max = 99999;
@@ -92,6 +117,12 @@ public class Customer {
 		return id;
 	}
 
+	/*
+	 * Check that the entered ID is not in use, if the ID is in use, "Number exists"
+	 * 
+	 * @param id the new ID that should be set to the object will be returned on the
+	 * terminal if it's not in use, the new ID will be set.
+	 */
 	public void setId(int id) {
 		if (!doesCustomerExists(id)) {
 			this.id = id;
@@ -102,7 +133,7 @@ public class Customer {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -110,7 +141,7 @@ public class Customer {
 	}
 
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String lastName) {
@@ -118,7 +149,7 @@ public class Customer {
 	}
 
 	public String getStreetName() {
-		return streetName;
+		return this.streetName;
 	}
 
 	public void setStreetName(String streetName) {
@@ -126,7 +157,7 @@ public class Customer {
 	}
 
 	public int getHouseNumber() {
-		return houseNumber;
+		return this.houseNumber;
 	}
 
 	public void setHouseNumber(int houseNumber) {
@@ -134,7 +165,7 @@ public class Customer {
 	}
 
 	public int getPostalCode() {
-		return postalCode;
+		return this.postalCode;
 	}
 
 	public void setPostalCode(int postalCode) {
@@ -142,7 +173,7 @@ public class Customer {
 	}
 
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public void setCity(String city) {
@@ -150,7 +181,7 @@ public class Customer {
 	}
 
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public void setCountry(String country) {
