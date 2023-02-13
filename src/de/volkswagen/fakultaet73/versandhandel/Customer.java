@@ -9,23 +9,29 @@ public class Customer {
 	private int postalCode;
 	private String city;
 	private String country;
-
-	public Customer(String firstName, String lastName, String streetName, int houseNumber, int postalCode, String city,
-			String country) {
-
-		this.id = generateCustomerId();
-
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.streetName = streetName;
-		this.houseNumber = houseNumber;
-		this.postalCode = postalCode;
-		this.city = city;
-		this.country = country;
-	}
-	public Customer(int id, String firstName, String lastName, String streetName, int houseNumber, int postalCode, String city,
-			String country) {
-
+	
+	/**
+	 * Dies ist der Standart Konstrukter für die Customer Klasse!
+	 * @param id
+	 * Ist die Customer ID
+	 * @param firstName
+	 * ist der Vorname des Kunden 
+	 * @param lastName
+	 * Ist der Nachname des Kunden
+	 * @param streetName
+	 * Ist der Straßenname des Wohnorts des Kunden
+	 * @param houseNumber
+	 * Ist die Hausnummer des Wohnorts des Kunden
+	 * @param postalCode
+	 * Ist die Postleitzahl des Wohnorts des Kunden
+	 * @param city
+	 * Ist der Wohnort des Kunden
+	 * @param country
+	 * Ist das Land wo der Kunden wohnt!
+	 */
+	
+	public Customer(int id, String firstName, String lastName, String streetName, int houseNumber, int postalCode,
+			String city, String country) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -35,6 +41,23 @@ public class Customer {
 		this.city = city;
 		this.country = country;
 	}
+
+	/**
+	 * Ist eine Kopie des Standart Konstrukter der Klasse Customer und 
+	 */
+	public Customer(String firstName, String lastName, String streetName, int houseNumber, int postalCode, String city,
+			String country) {
+		this.id = generateCustomerId();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.streetName = streetName;
+		this.houseNumber = houseNumber;
+		this.postalCode = postalCode;
+		this.city = city;
+		this.country = country;
+	}
+
+	
 
 	private int generateCustomerId() {
 		int generatedCustomerId = 0;

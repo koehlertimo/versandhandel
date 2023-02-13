@@ -1,20 +1,22 @@
 package de.volkswagen.fakultaet73.versandhandel;
 
 public class Versandhandel {
-	
+
+	java.util.Scanner sc = new java.util.Scanner(System.in);
+
 	Customer loggedInCustomer;
 
 	Product[] products = new Product[] { new Product(1, "Blaue Rose", "eine Rose in Blau, die ist schön", 4.99, 19.0),
 			new Product(2, "Schwarze Rose", "eine Rose in Schwarz, die ist schön", 6.99, 19.0),
 			new Product(3, "Bauschaum", "Mega Bauschaum, richtig schaumig", 16.99, 7.5) };
 
-	Customer[] customers = new Customer[] { new Customer(1,"Timo", "Köhler", "Steinbreite", 41, 38440, "Wolfsburg", "DE"),
-			new Customer(2,"Kevin", "Ochmann", "Isar-Straße", 4, 38120, "Braunschweig", "DE"),
-			new Customer(3,"Jonas", "Willke", "Bornheider Weg", 9, 38179, "Schwülper", "DE"),
-			new Customer(4,"Giovanni", "Minardi", "Friedrich-Ebert-Straße", 63, 38440, "Wolfsburg", "DE") };
+	Customer[] customers = new Customer[] {
+			new Customer(1, "Timo", "Köhler", "Steinbreite", 41, 38440, "Wolfsburg", "DE"),
+			new Customer(2, "Kevin", "Ochmann", "Isar-Straße", 4, 38120, "Braunschweig", "DE"),
+			new Customer(3, "Jonas", "Willke", "Bornheider Weg", 9, 38179, "Schwülper", "DE"),
+			new Customer(4, "Giovanni", "Minardi", "Friedrich-Ebert-Straße", 63, 38440, "Wolfsburg", "DE") };
 
 	public void start() {
-		java.util.Scanner sc = new java.util.Scanner(System.in);
 
 		boolean isProgrammRunning = true;
 
@@ -35,26 +37,34 @@ public class Versandhandel {
 			showBill(selectedProduct, amount);
 			submitOrder();
 
-			String restartInput;
+			isProgrammRunning = restartProgram();
 
-			boolean isInputValid = false;
-
-			do {
-				System.out.println("Wollen Sie das Programm neustarten? Ja / Nein");
-				restartInput = sc.nextLine();
-
-				if (restartInput.toUpperCase().equals("JA")) {
-					isInputValid = true;
-
-				} else if (restartInput.toUpperCase().equals("NEIN")) {
-					isProgrammRunning = false;
-					isInputValid = true;
-				} else {
-					System.out.println("Fehlerhafte Eingabe, bitte versuchen Sie es erneut!");
-
-				}
-			} while (!isInputValid);
 		}
+	}
+
+	public boolean restartProgram() {
+
+		String restartInput;
+
+		boolean isInputValid = false;
+
+		do {
+			System.out.println("Wollen Sie das Programm neustarten? Ja / Nein");
+			restartInput = sc.nextLine();
+
+			if (restartInput.toUpperCase().equals("JA")) {
+				isInputValid = true;
+
+			} else if (restartInput.toUpperCase().equals("NEIN")) {
+				isInputValid = true;
+				return false;
+			} else {
+				System.out.println("Fehlerhafte Eingabe, bitte versuchen Sie es erneut!");
+
+			}
+		} while (!isInputValid);
+
+		return true;
 	}
 
 	public Product selectProduct(Product[] product) {
@@ -94,7 +104,6 @@ public class Versandhandel {
 		int input = 0;
 		do {
 			try {
-				java.util.Scanner sc = new java.util.Scanner(System.in);
 				input = Integer.parseInt(sc.nextLine());
 				isInputValid = true;
 
@@ -110,7 +119,6 @@ public class Versandhandel {
 		int input = 0;
 		do {
 			try {
-				java.util.Scanner sc = new java.util.Scanner(System.in);
 				System.out.print(text);
 				input = Integer.parseInt(sc.nextLine());
 				isInputValid = true;
@@ -127,7 +135,6 @@ public class Versandhandel {
 		int input = 0;
 		do {
 			try {
-				java.util.Scanner sc = new java.util.Scanner(System.in);
 				System.out.printf(textWithPlaceholder, product);
 				input = Integer.parseInt(sc.nextLine());
 				isInputValid = true;
@@ -146,8 +153,7 @@ public class Versandhandel {
 
 	public void submitOrder() {
 		System.out.println("\n\n Wollen Sie die Bestellung aufgeben? (Ja / Nein)");
-		java.util.Scanner scanner2 = new java.util.Scanner(System.in);
-		String inputOrderSubmit = scanner2.nextLine();
+		String inputOrderSubmit = sc.nextLine();
 		if (inputOrderSubmit.toUpperCase().equals("JA")) {
 			clearScreen();
 			System.out.println("\n" + "  _____              _        \n" + " |  __ \\            | |       \n"
@@ -170,27 +176,24 @@ public class Versandhandel {
 	 */
 	public void showBill(Product product, int amount) {
 		System.out.printf("\n%s %s \n%s %d \n%d %s \n \n", loggedInCustomer.getFirstName(),
-				loggedInCustomer.getLastName(), loggedInCustomer.getStreetName(), 
-				loggedInCustomer.getHouseNumber(),loggedInCustomer.getPostalCode(), 
-				loggedInCustomer.getCity());
-		
+				loggedInCustomer.getLastName(), loggedInCustomer.getStreetName(), loggedInCustomer.getHouseNumber(),
+				loggedInCustomer.getPostalCode(), loggedInCustomer.getCity());
+
 		System.out.printf("Danke %s für Ihren Einkaufen! \nFolgende Positionen stellen wir in Rechnung: \n",
 				loggedInCustomer.getFirstName());
-		System.out.println("__________________________________________________________________________________________");
+		System.out
+				.println("__________________________________________________________________________________________");
 		System.out.println("Pos.\tBeschreibung\t\t\tMenge\tPreis\t\tGesamtpreis");
-		System.out.printf("%s\t%s\t\t\t%d\t%.2f€\t\t%.2f€\n", "001", product.getName(), amount,
-				product.calcFullPrice(), product.calcFullPrice(amount));
+		System.out.printf("%s\t%s\t\t\t%d\t%.2f€\t\t%.2f€\n", "001", product.getName(), amount, product.calcFullPrice(),
+				product.calcFullPrice(amount));
 		System.out.println(product.getDescription());
-		System.out.println("__________________________________________________________________________________________");
+		System.out
+				.println("__________________________________________________________________________________________");
 		System.out.printf("\t\t\t\t\t\tGesamt netto\t%.2f€\n", (product.getPrice() * amount));
 		System.out.printf("\t\t\t\t\t\tUmsatzsteuer\t%.2f€\n", product.calcTaxAmount(amount));
 		System.out.println("\t\t\t\t\t\t__________________________________________");
 		System.out.printf("\t\t\t\t\t\tGesamt brutto\t%.2f€\n\n", product.calcFullPrice(amount));
-		
-		
-		
-		
-		
+
 	}
 
 	/**
@@ -221,8 +224,8 @@ public class Versandhandel {
 			input = getUserInput("Bitte geben Sie eine Kundennummer an: ");
 			if (isACustomer(input)) {
 				clearScreen();
-				System.out.println("Herzlichen Willkommen " + loggedInCustomer.getFirstName()
-				+ " " + loggedInCustomer.getLastName() + "\n");
+				System.out.println("Herzlichen Willkommen " + loggedInCustomer.getFirstName() + " "
+						+ loggedInCustomer.getLastName() + "\n");
 				isInputValid = true;
 			} else {
 				System.out.println("Bitte geben Sie eine valide Kundennummer an!");
@@ -233,30 +236,25 @@ public class Versandhandel {
 	public void registerUser() {
 		clearScreen();
 		extendCustomerArray();
-		
+
 		System.out.println("Bitte geben Sie folgende Daten an: ");
-		customers[customers.length-1] = new Customer(getUserInputAsString("Vorname: "), 
-				getUserInputAsString("Nachname: "),
-				getUserInputAsString("Straßenname: "), 
-				getUserInput("Hausnummer: "), 
-				getUserInput("Postleitzahl: "),
-				getUserInputAsString("Ort: "),
-				getUserInputAsString("Land: "));
-		
-		System.out.printf("Deine Kundennummer lautet %s \n", customers[customers.length -1].getId());
+		customers[customers.length - 1] = new Customer(getUserInputAsString("Vorname: "),
+				getUserInputAsString("Nachname: "), getUserInputAsString("Straßenname: "), getUserInput("Hausnummer: "),
+				getUserInput("Postleitzahl: "), getUserInputAsString("Ort: "), getUserInputAsString("Land: "));
+
+		System.out.printf("Deine Kundennummer lautet %s \n", customers[customers.length - 1].getId());
 
 	}
 
 	public void extendCustomerArray() {
-		Customer[] biggerArray = new Customer[customers.length +1]; 
-		for(int i = 0; i<customers.length; i++) {
+		Customer[] biggerArray = new Customer[customers.length + 1];
+		for (int i = 0; i < customers.length; i++) {
 			biggerArray[i] = customers[i];
 		}
 		customers = biggerArray;
 	}
 
 	public String getUserInputAsString(String text) {
-		java.util.Scanner sc = new java.util.Scanner(System.in);
 		System.out.print(text);
 		return sc.nextLine();
 	}
@@ -275,7 +273,6 @@ public class Versandhandel {
 				+ "     \\/ \\___|_|  |___/\\__,_|_| |_|\\__,_|_| |_|\\__,_|_| |_|\\__,_|\\___|_|\n");
 
 		System.out.println("Wollen Sie sich anmelden oder registrieren?");
-		java.util.Scanner sc = new java.util.Scanner(System.in);
 
 		boolean isInputValid = false;
 		String input = "";
@@ -306,6 +303,5 @@ public class Versandhandel {
 		for (int i = 0; i <= 15; i++) {
 			System.out.print("\n");
 		}
-	
 	}
 }
