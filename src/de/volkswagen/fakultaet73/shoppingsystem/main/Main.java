@@ -23,4 +23,12 @@ public class Main {
 	}
 }
 
-// TODO: add this to getter methods
+
+//TODO: setter löschen ggfs. 
+//TODO: Util Klasse erstellen
+	//TODO: welcomescreen, clearscreen, randomnumber, inputString, inputInt
+// TODO: Auswahl menü erstellen 
+	// TODO: Kunde soll sich jederzeit ausloggen können
+	// TODO: Kunde soll seine Daten ändern können (toString und Stringbuilder nutzen)
+	// TODO: toString methode in Produktauswahl nutzen
+//TODO: Kunden und Produkte sollen in csv datei gespeichert und geladen werden!
