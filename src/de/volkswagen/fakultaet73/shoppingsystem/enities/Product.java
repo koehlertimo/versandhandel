@@ -1,4 +1,4 @@
-package de.volkswagen.fakultaet73.shoppingsystem.product;
+package de.volkswagen.fakultaet73.shoppingsystem.enities;
 
 public class Product {
 	private int id;
@@ -118,6 +118,20 @@ public class Product {
 
 	public double calcFullPrice(int amount) {
 		return this.price * amount;
+	}
+	
+	public String toString() {
+		return String.format("ID: %d - %s - %.2f€ \n", this.id, this.name, this.price);
+	}
+	
+	public String convertToCSVString() {
+		StringBuilder sb = new StringBuilder(); 
+		sb.append(this.id + ";");
+		sb.append(this.name + ";");
+		sb.append(this.description + ";");
+		sb.append(this.price + ";");
+		sb.append(""+ this.taxRateInPercent);
+		return sb.toString();
 	}
 
 }

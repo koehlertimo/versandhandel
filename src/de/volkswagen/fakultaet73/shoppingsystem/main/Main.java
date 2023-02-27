@@ -1,6 +1,6 @@
 package de.volkswagen.fakultaet73.shoppingsystem.main;
 
-import de.volkswagen.fakultaet73.shoppingsystem.system.ShoppingSystem;
+import de.volkswagen.fakultaet73.shoppingsystem.enities.ShoppingSystem;
 
 /**
  * This is the Main class
@@ -18,17 +18,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		ShoppingSystem shop = new ShoppingSystem();
-
 		shop.start();
 	}
 }
 
+/*
+ * Backlog:
+ */
 
-//TODO: setter löschen ggfs. 
-//TODO: Util Klasse erstellen
-	//TODO: welcomescreen, clearscreen, randomnumber, inputString, inputInt
-// TODO: Auswahl menü erstellen 
-	// TODO: Kunde soll sich jederzeit ausloggen können
-	// TODO: Kunde soll seine Daten ändern können (toString und Stringbuilder nutzen)
-	// TODO: toString methode in Produktauswahl nutzen
+
 //TODO: Kunden und Produkte sollen in csv datei gespeichert und geladen werden!
+
+//TODO: toString Methode für Produkte und Customer anlegen
+
+//TODO: maybe randomIntGenerator fixen
+//TODO: javadoc schreiben
+//TODO: static checken
+//TODO: convention checken
+//TODO: maybe CustomerManagement and ProductManagement non static machen
+//TODO: Customer and Product-Array in Shoppingsystem
