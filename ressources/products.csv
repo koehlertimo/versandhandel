@@ -1,11 +1,11 @@
-Id;Firstname;Lastname;Street;Housenumber;Postalcode;City;Country
-1;Blaue Rose;eine Rose in Blau, die ist schön;4.99;19.0
-2;Schwarze Rose;eine Rose in Schwarz, die ist schön;6.99;19.0
-3;Bauschaum;Mega Bauschaum, richtig schaumig;16.99;0.0
-4;Apple AirPods Pro;In-Ear-Kopfhörer mit aktiver Geräuschunterdrückung, kabellos, weiß;279.00;19.00
-5;Braun Series 9 Rasierer;9297cc, elektrischer Rasierer, mit Reinigungs- und Ladestation;359.99;19.00
-6;Bosch MUM5 Küchenmaschine;MUM58420, 1000 Watt, 3,9 l Edelstahl-Rührschüssel, Durchlaufschnitzler;169.99;19.00
-7;Seagate Expansion Portable;externe Festplatte, 2 TB, USB 3.0, schwarz;64.99;19.00
-8;Samsung Galaxy Tab S7+;Tablet mit S-Pen, 12,4 Zoll Super AMOLED Display, 128 GB Speicher, Mystic Black;799.00;19.00
-9;Bosch Professional GKS 190;Handkreissäge mit 1400 Watt Motor, 190 mm Sägeblatt, 70 mm Schnitttiefe;139.99;19.00
-10;Siemens EQ.6 plus s700;Kaffeevollautomat mit Milchbehälter, keramisches Mahlwerk, intuitive Bedienung;849.00;19.00
+Id;Name;Category;Description;Price;Taxrate(%)
+1;Blaue Rose;Garten;eine Rose in Blau, die ist schön;4.99;19.0
+2;Schwarze Rose;Garten;eine Rose in Schwarz, die ist schön;6.99;19.0
+3;Bauschaum;Baumaterialien;Mega Bauschaum, richtig schaumig;16.99;0.0
+4;Apple AirPods Pro;Technologie;In-Ear-Kopfhörer mit aktiver Geräuschunterdrückung, kabellos, weiß;279.0;19.0
+5;GARDENA Classic Gießstab;Garten;Gießstab mit 183 cm Länge, stufenlos regulierbare Wassermenge;29.99;19.0
+6;Bosch Akkuschrauber;Baumaterialien;Bohrschrauber mit 2 Akkus, 18 V, 10 mm Bohrfutter;129.99;19.0
+7;Philips Senseo Kaffeepadmaschine;Undefiniert;HD6554/68, schwarz, 0,7 l Wassertank, automatische Abschaltung;49.99;19.0
+8;Bosch Professional Schlagbohrmaschine;Baumaterialien;Schlagbohrmaschine mit 750 Watt Motor, 13 mm Schnellspannbohrfutter;99.99;19.0
+9;Bosch Akku-Laubbläser;Garten;Akku-Laubbläser mit 36V, 2,0 Ah, bis zu 300 km/h Luftstromgeschwindigkeit;199.0;19.0
+10;Samsung Galaxy S21;Technologie;5G Smartphone, 128 GB Speicher, Triple-Kamera, Android 11, Phantom Gray;799.0;19.0

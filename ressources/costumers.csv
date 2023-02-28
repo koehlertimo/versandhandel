@@ -1,8 +1,4 @@
 Id;Firstname;Lastname;Street;Housenumber;Postalcode;City;Country
-1;Timo;Köhler;Steinbreite;41;38440;Wolfsburg;DE
-2;Kevin;Ochmann;Isar-Straße;4;38120;Braunschweig;DE
-3;Jonas;Willke;Bornheider Weg;9;38179;Schwülper;DE
-4;Giovanni;Minardi;Friedrich-Ebert-Straße;63;38440;Wolfsburg;DE
 10001;Anna;Schmidt;Musterstrasse;1;12345;Berlin;Deutschland
 10002;Max;Müller;Hauptstrasse;2;23456;Hamburg;Deutschland
 10003;Marie;Koch;Friedrichstrasse;3;34567;München;Deutschland
@@ -12,20 +8,10 @@ Id;Firstname;Lastname;Street;Housenumber;Postalcode;City;Country
 10007;Lea;Schulz;Schlossstrasse;7;78901;Düsseldorf;Deutschland
 10008;Philipp;Becker;Marktstrasse;8;89012;Dortmund;Deutschland
 10009;Lena;Hoffmann;Kaiserstrasse;9;90123;Essen;Deutschland
-10010;Jonas;Schäfer;Rathausplatz;10;01234;Bremen;Deutschland
+10010;Jonas;Schäfer;Rathausplatz;10;1234;Bremen;Deutschland
 10011;Sara;Bauer;Hofgartenstrasse;11;12345;Dresden;Deutschland
 10012;David;Richter;Hermannstrasse;12;23456;Leipzig;Deutschland
 10013;Laura;Klein;Schillerstrasse;13;34567;Hannover;Deutschland
 10014;Jan;Wagner;Gartenstrasse;14;45678;Nürnberg;Deutschland
 10015;Carla;Beck;Schulstrasse;15;56789;Duisburg;Deutschland
 10016;Erik;Schmidt;Lessingstrasse;16;67890;Bochum;Deutschland
-10017;Sophie;Kühn;Hauptplatz;17;78901;Wuppertal;Deutschland
-10018;Marc;Hermann;Glockengasse;18;89012;Bonn;Deutschland
-10019;Julia;Schmitt;Klosterstrasse;19;90123;Münster;Deutschland
-10020;Tim;Lang;Breite Strasse;20;01234;Karlsruhe;Deutschland
-10021;Lara;Krause;Karlstrasse;21;12345;Mannheim;Deutschland
-10022;Tom;Vogel;Goethestrasse;22;23456;Augsburg;Deutschland
-10023;Lisa;Roth;Friedhofstrasse;23;34567;Wiesbaden;Deutschland
-10024;Niklas;Schmid;Kornmarkt;24;45678;Gelsenkirchen;Deutschland
-10025;Melanie;Keller;Schwabacherstrasse;25;56789;Mönchengladbach;Deutschland
-10026;Fabian;Wolf;Obermarkt;26;67890;Bielefeld;Deutschland

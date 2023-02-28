@@ -1,5 +1,6 @@
 package de.volkswagen.fakultaet73.shoppingsystem.utils;
 
+import de.volkswagen.fakultaet73.shoppingsystem.enities.Category;
 import de.volkswagen.fakultaet73.shoppingsystem.enities.Customer;
 import de.volkswagen.fakultaet73.shoppingsystem.enities.Product;
 import de.volkswagen.fakultaet73.shoppingsystem.management.CustomerManagement;
@@ -143,18 +144,18 @@ public final class Utils {
 		int range = max - min;
 		return (int) (Math.random() * range);
 	}
-	
-	public static void setSampleData() {
-		ProductManagement.setProducts(new Product[] { 
-				new Product(1, "Blaue Rose", "eine Rose in Blau, die ist schön", 4.99, 19.0),
-				new Product(2, "Schwarze Rose", "eine Rose in Schwarz, die ist schön", 6.99, 19.0),
-				new Product(3, "Bauschaum", "Mega Bauschaum, richtig schaumig", 16.99, 0.0) });
-		CustomerManagement.setCustomers(new Customer[] {
+	public static void setCustomerSampleData() {
+		CustomerManagement.customers = new Customer[]{
 				new Customer(1, "Timo", "Köhler", "Steinbreite", 41, 38440, "Wolfsburg", "DE"),
 				new Customer(2, "Kevin", "Ochmann", "Isar-Straße", 4, 38120, "Braunschweig", "DE"),
 				new Customer(3, "Jonas", "Willke", "Bornheider Weg", 9, 38179, "Schwülper", "DE"),
-				new Customer(4, "Giovanni", "Minardi", "Friedrich-Ebert-Straße", 63, 38440, "Wolfsburg", "DE")});
-
+				new Customer(4, "Giovanni", "Minardi", "Friedrich-Ebert-Straße", 63, 38440, "Wolfsburg", "DE")};
+	}
+	public static void setProductSampleData() {
+		ProductManagement.products = new Product[] {
+				new Product(1, "Blaue Rose", Category.GARDEN,"eine Rose in Blau, die ist schön", 4.99, 19.0),
+				new Product(2, "Schwarze Rose", Category.GARDEN, "eine Rose in Schwarz, die ist schön", 6.99, 19.0),
+				new Product(3, "Bauschaum", Category.CONSTRUCTION, "Mega Bauschaum, richtig schaumig", 16.99, 0.0) };
 	}
 	
 	public static String[] extendArray(String[] arr) {

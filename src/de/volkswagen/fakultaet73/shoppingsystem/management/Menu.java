@@ -10,17 +10,17 @@ public class Menu {
 		
 	public void start() {
 		Utils.clearScreen();
-		System.out.println("\n"
-				+ "  __  __                  \n"
+
+		System.out.println("  __  __                  \n"
 				+ " |  \\/  |                 \n"
 				+ " | \\  / | ___ _ __  _   _ \n"
 				+ " | |\\/| |/ _ \\ '_ \\| | | |\n"
 				+ " | |  | |  __/ | | | |_| |\n"
 				+ " |_|  |_|\\___|_| |_|\\__,_|\n"
 				+ "                          \n"
-				+ "                          \n"
 				+ "");
-		
+		System.out.println("Herzlichen Willkommen " + ShoppingSystem.login.loggedInCustomer.getFirstName() + " "
+				+ ShoppingSystem.login.loggedInCustomer.getLastName() + "\n");
 		System.out.println("Bitte wählen Sie eine Option aus:");
 		System.out.println("[1]Produkt auswählen \n[2]Daten bearbeiten \n[3]Ausloggen ");
 		
@@ -41,6 +41,7 @@ public class Menu {
 					isInputValid = true;
 					Utils.saveAllData();
 					ShoppingSystem.login.setLoggedInCustomer(null);
+					Utils.clearScreen();
 					break;
 				} default : {
 					System.out.println("Diese Eingabe war ungültig, bitte probieren Sie es erneut");
@@ -64,7 +65,6 @@ public class Menu {
 		System.out.println("--- Unsere Produkte ---");
 		for (int i = 0; i < products.length; i++) {
 			System.out.print(products[i].toString());
-			System.out.println(products[i].getDescription());
 			System.out.println("\n");
 		}
 
@@ -113,15 +113,15 @@ public class Menu {
 		System.out
 				.println("__________________________________________________________________________________________");
 		System.out.println("Pos.\tBeschreibung\t\t\tMenge\tPreis\t\tGesamtpreis");
-		System.out.printf("%s\t%s\t\t\t%d\t%.2f€\t\t%.2f€\n", "001", product.getName(), amount, product.getPrice(),
+		System.out.printf("%s\t%s\t\t\t%,d\t%,.2f€\t\t%,.2f€\n", "001", product.getName(), amount, product.getPrice(),
 				product.calcFullPrice(amount));
 		System.out.println(product.getDescription());
 		System.out
 				.println("__________________________________________________________________________________________");
-		System.out.printf("\t\t\t\t\t\tGesamt netto\t%.2f€\n", (product.calcNetPrice(amount)));
-		System.out.printf("\t\t\t\t\t\tUmsatzsteuer\t%.2f€\n", product.calcTaxAmount(amount));
+		System.out.printf("\t\t\t\t\t\tGesamt netto\t%,.2f€\n", (product.calcNetPrice(amount)));
+		System.out.printf("\t\t\t\t\t\tUmsatzsteuer\t%,.2f€\n", product.calcTaxAmount(amount));
 		System.out.println("\t\t\t\t\t\t__________________________________________");
-		System.out.printf("\t\t\t\t\t\tGesamt brutto\t%.2f€\n\n", product.calcFullPrice(amount));
+		System.out.printf("\t\t\t\t\t\tGesamt brutto\t%,.2f€\n\n", product.calcFullPrice(amount));
 		submitOrder();
 
 	}

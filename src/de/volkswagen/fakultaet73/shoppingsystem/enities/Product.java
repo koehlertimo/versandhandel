@@ -3,6 +3,8 @@ package de.volkswagen.fakultaet73.shoppingsystem.enities;
 public class Product {
 	private int id;
 	private String name;
+	private Category category;
+
 	private String description;
 	private double price;
 	private double taxRateInPercent;
@@ -17,10 +19,11 @@ public class Product {
 	 * @param taxRateInPercent   tax rate of the product
 	 */
 
-	public Product(int productId, String productName, String productDescription, double productPrice,
+	public Product(int productId, String productName, Category category, String productDescription, double productPrice,
 			double taxRateInPercent) {
 		this.id = productId;
 		this.name = productName;
+		this.category = category;
 		this.description = productDescription;
 		this.price = productPrice;
 		this.taxRateInPercent = taxRateInPercent;
@@ -40,6 +43,14 @@ public class Product {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Category getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getDescription() {
@@ -121,13 +132,14 @@ public class Product {
 	}
 	
 	public String toString() {
-		return String.format("ID: %d - %s - %.2f€ \n", this.id, this.name, this.price);
+		return String.format("ID: %d - %s - %s - %.2f€ \n%s\n", this.id, this.name, this.category.getGermanTitle(), this.price, this.description);
 	}
 	
 	public String convertToCSVString() {
 		StringBuilder sb = new StringBuilder(); 
 		sb.append(this.id + ";");
 		sb.append(this.name + ";");
+		sb.append(this.category.getGermanTitle() + ";");
 		sb.append(this.description + ";");
 		sb.append(this.price + ";");
 		sb.append(""+ this.taxRateInPercent);

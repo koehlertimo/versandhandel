@@ -46,7 +46,6 @@ public class Login {
 	 * wants to signup , it class the registerUser method
 	 */
 	public void start() {
-		Utils.clearScreen();
 		Utils.printWelcomeArt();
 		System.out.println("Wollen Sie sich anmelden oder registrieren?");
 
@@ -69,7 +68,9 @@ public class Login {
 				loggedInCustomer = null;
 				System.exit(0);
 				isInputValid = true;
-			} else {
+			} else if(input.equalsIgnoreCase("DELETE")) {
+				CustomerManagement.deleteUser();
+			}else {
 				System.out.println("Die Eingabe war ungültig, probieren Sie es bitte erneut");
 			}
 
@@ -90,8 +91,6 @@ public class Login {
 			if (CustomerManagement.doesCustomerExists(input)) {
 				Utils.clearScreen();
 				this.loggedInCustomer = CustomerManagement.findCustomerById(input);
-				System.out.println("Herzlichen Willkommen " + this.loggedInCustomer.getFirstName() + " "
-						+ this.loggedInCustomer.getLastName() + "\n");
 				isInputValid = true;
 			} else {
 				System.out.println("Bitte geben Sie eine valide Kundennummer an!");

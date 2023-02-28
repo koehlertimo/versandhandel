@@ -138,7 +138,6 @@ public class CustomerManagement {
 				}
 			}
 			writer.flush();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -162,7 +161,9 @@ public class CustomerManagement {
 					}
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				Utils.setCustomerSampleData();
+				System.err.println("Fehler beim Laden der Kundendaten!\n" +
+						"Es wurden Beispieldaten eingefügt!(1)");
 			}
 		return data;
 	}
@@ -177,13 +178,54 @@ public class CustomerManagement {
 				
 				
 			}catch(NumberFormatException nfe) {
-				System.err.println("Die Customer CSV Datei enthält einen Fehler: " + nfe);
+				Utils.setCustomerSampleData();
+				System.err.println("Fehler beim Laden der Kundendaten!\n" +
+						"Es wurden Beispieldaten eingefügt!(2)");
 			}
 		}
 		
 		CustomerManagement.customers = newCustomers;
 	}
 	public static void loadData() {
-		CustomerManagement.turnCSVArrayToCustomerArray(CustomerManagement.readDataFromCSVFile());
+		try {
+			CustomerManagement.turnCSVArrayToCustomerArray(CustomerManagement.readDataFromCSVFile());
+		} catch (Exception e){
+			Utils.setCustomerSampleData();
+			System.err.println("Fehler beim Laden der Kundendaten!\n" +
+					"Es wurden Beispieldaten eingefügt!(3)");
+		}
 	}
+	public static void deleteUser(){
+		int id = Utils.getUserInputAsInt("Id: ");
+		String firstName = Utils.getUserInputAsString("Vorname: ");
+		String lastName = Utils.getUserInputAsString("Nachmane: ");
+		Customer user = findCustomerById(id);
+
+		if(user == null){
+			System.err.println("Der Nutzer konnte nicht gefunden werden!");
+			return;
+		}
+		if (user.getFirstName().equalsIgnoreCase(firstName) && user.getLastName().equalsIgnoreCase(lastName)){
+			for (int i=0; i < customers.length; i++){
+				if (customers[i] == user){
+					deleteUserFromArray(i);
+					writeDataToCSVFile();
+					loadData();
+					System.out.println("Ihr Benutzerkonto wurde erfolgreich gelöscht!");
+					return;
+				}
+			}
+		} else {
+			System.err.println("Dieser Nutzer konnte nicht gefunden werden!");
+		}
+	}
+	public static void deleteUserFromArray(int index){
+		Customer[] newArray = new Customer[customers.length-1];
+		customers[index] = customers[customers.length-1];
+		for(int i = 0; i< newArray.length; i++){
+			newArray[i] = customers[i];
+		}
+		customers = newArray;
+	}
+
 }

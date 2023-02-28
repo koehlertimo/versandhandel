@@ -27,9 +27,6 @@ public class Main {
  */
 
 
-//TODO: Kunden und Produkte sollen in csv datei gespeichert und geladen werden!
-
-//TODO: toString Methode für Produkte und Customer anlegen
 
 //TODO: maybe randomIntGenerator fixen
 //TODO: javadoc schreiben
